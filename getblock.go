@@ -2,6 +2,7 @@ package getblock
 
 import (
 	"errors"
+	"github.com/vannleonheart/goutil"
 )
 
 func New(config *Config) *Client {
@@ -31,7 +32,7 @@ func (c *Client) SendRequest(method string, params []string, result interface{})
 		"Content-Type": "application/json",
 	}
 
-	err := sendHttpPost(rpcUrl, &requestData, &requestHeaders, result)
+	_, err := goutil.SendHttpPost(rpcUrl, &requestData, &requestHeaders, result)
 	if err != nil {
 		return err
 	}

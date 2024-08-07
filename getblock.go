@@ -32,7 +32,7 @@ func (c *Client) SendRequest(method string, params []string, result interface{})
 		"Content-Type": "application/json",
 	}
 
-	_, err := goutil.SendHttpPost(rpcUrl, &requestData, &requestHeaders, result)
+	_, err := goutil.SendHttpPost(rpcUrl, &requestData, &requestHeaders, result, nil)
 	if err != nil {
 		return err
 	}
